@@ -1,1 +1,1 @@
-include ':BeijingNews0224'
+include ':BeijingNews0224', ':SlidingMenu_library'
