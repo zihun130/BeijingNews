@@ -16,7 +16,7 @@ public class MainActivity extends SlidingFragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_main);
         initSlidingMenu();
 
         initFragment();
@@ -31,7 +31,6 @@ public class MainActivity extends SlidingFragmentActivity {
     }
 
     private void initSlidingMenu() {
-        setContentView(R.layout.activity_main);
 
         setBehindContentView(R.layout.left_menu);
 
