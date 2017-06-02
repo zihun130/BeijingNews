@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="atguigu.com.beijingnews">
+    package="atguigu.com.beijingnews001">
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/icon_150"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -16,8 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".GuideActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
