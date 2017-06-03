@@ -124,7 +124,7 @@ public class GuideActivity extends AppCompatActivity {
         imageViews = new ArrayList<>();
         for (int i = 0; i < ids.length; i++) {
             ImageView imageView = new ImageView(this);
-            //设置背景
+            //注意设置背景
             imageView.setBackgroundResource(ids[i]);
             //添加到集合中
             imageViews.add(imageView);
