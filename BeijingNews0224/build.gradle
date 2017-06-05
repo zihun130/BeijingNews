@@ -31,4 +31,5 @@ dependencies {
     compile 'com.zhy:okhttputils:2.6.2'
     compile files('libs/gson-2.2.4.jar')
     compile project(':ViewPagerIndicator_library')
+    compile 'com.github.bumptech.glide:glide:3.5.2'
 }
