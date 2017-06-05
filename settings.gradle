@@ -1,1 +1,3 @@
 include ':BeijingNews0224', ':SlidingMenu_library', ':BeijingNews001'
+include ':ViewPagerIndicator_library'
+include ':ViewPagerIndicator_sample'

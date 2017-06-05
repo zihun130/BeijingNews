@@ -12,6 +12,8 @@
             <option value="$PROJECT_DIR$/BeijingNews001" />
             <option value="$PROJECT_DIR$/BeijingNews0224" />
             <option value="$PROJECT_DIR$/SlidingMenu_library" />
+            <option value="$PROJECT_DIR$/ViewPagerIndicator_library" />
+            <option value="$PROJECT_DIR$/ViewPagerIndicator_sample" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

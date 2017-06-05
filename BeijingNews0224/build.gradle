@@ -28,4 +28,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.jakewharton:butterknife:5.1.1'
     compile project(':SlidingMenu_library')
+    compile 'com.zhy:okhttputils:2.6.2'
+    compile files('libs/gson-2.2.4.jar')
+    compile project(':ViewPagerIndicator_library')
 }

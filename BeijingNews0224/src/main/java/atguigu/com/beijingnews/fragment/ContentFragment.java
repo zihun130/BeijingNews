@@ -108,6 +108,11 @@ public class ContentFragment extends BaseFragmnet {
         ButterKnife.reset(this);
     }
 
+    public NewsPager getNewsPager() {
+
+        return (NewsPager) pagers.get(1);
+    }
+
     private class MyPagerAdapter extends PagerAdapter {
         //创建Item布局,把当前视图添加进容器
         @Override

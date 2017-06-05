@@ -41,4 +41,11 @@ public class MainActivity extends SlidingFragmentActivity {
         slidingMenu.setBehindOffset(200);
     }
 
+    public LeftMenuFragment getLeftMenuFragment() {
+        return (LeftMenuFragment) getSupportFragmentManager().findFragmentByTag(LEFT_TAG);
+    }
+
+    public ContentFragment getContentFragment() {
+        return (ContentFragment) getSupportFragmentManager().findFragmentByTag(MAIN_TAG);
+    }
 }

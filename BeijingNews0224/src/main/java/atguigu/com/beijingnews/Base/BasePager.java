@@ -6,6 +6,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import atguigu.com.beijingnews.MainActivity;
 import atguigu.com.beijingnews.R;
 
 /**
@@ -22,13 +23,20 @@ public class BasePager {
 
     public FrameLayout fl_content;
 
-    public BasePager(Context context){
+    public BasePager(final Context context){
         this.context=context;
 
         rootView=View.inflate(context, R.layout.base_pager,null);
         tv_title = (TextView) rootView.findViewById(R.id.tv_title);
         ib_menu= (ImageButton) rootView.findViewById(R.id.ib_menu);
         fl_content=(FrameLayout) rootView.findViewById(R.id.fl_content);
+
+        ib_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) context).getSlidingMenu().toggle();
+            }
+        });
 
     }
 
