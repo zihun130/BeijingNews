@@ -25,6 +25,7 @@ import atguigu.com.beijingnews.domain.DetailsPagerBean;
 import atguigu.com.beijingnews.domain.NewsBean;
 import atguigu.com.beijingnews.utils.ConstantUtils;
 import atguigu.com.beijingnews.utils.DensityUtil;
+import atguigu.com.beijingnews.view.HorizontalViewPager;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import okhttp3.Call;
@@ -39,7 +40,7 @@ import okhttp3.Call;
 public class TabDetailPager extends NewsCenterMenuBasePager {
     private final NewsBean.DataBean.ChildrenBean childrenBean;
 
-    private ViewPager viewpager;
+    private HorizontalViewPager viewpager;
     private TextView tv_title;
     private LinearLayout ll_point_group;
     @InjectView(R.id.lv)
@@ -64,7 +65,7 @@ public class TabDetailPager extends NewsCenterMenuBasePager {
         ButterKnife.inject(this, view);
 
         View viewTop = View.inflate(context, R.layout.listview_topview_item, null);
-        viewpager = (ViewPager) viewTop.findViewById(R.id.viewpager);
+        viewpager = (HorizontalViewPager) viewTop.findViewById(R.id.viewpager);
         tv_title = (TextView) viewTop.findViewById(R.id.tv_title);
         ll_point_group = (LinearLayout) viewTop.findViewById(R.id.ll_point_group);
 

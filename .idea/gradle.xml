@@ -9,11 +9,15 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Android-PullToRefresh_sample" />
             <option value="$PROJECT_DIR$/BeijingNews001" />
             <option value="$PROJECT_DIR$/BeijingNews0224" />
             <option value="$PROJECT_DIR$/SlidingMenu_library" />
             <option value="$PROJECT_DIR$/ViewPagerIndicator_library" />
             <option value="$PROJECT_DIR$/ViewPagerIndicator_sample" />
+            <option value="$PROJECT_DIR$/library" />
+            <option value="$PROJECT_DIR$/pullToRefreshListFragment" />
+            <option value="$PROJECT_DIR$/pullToRefreshViewPager" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

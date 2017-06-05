@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Android-PullToRefresh_sample/Android-PullToRefresh_sample.iml" filepath="$PROJECT_DIR$/Android-PullToRefresh_sample/Android-PullToRefresh_sample.iml" />
       <module fileurl="file://$PROJECT_DIR$/BeijingNews.iml" filepath="$PROJECT_DIR$/BeijingNews.iml" />
       <module fileurl="file://$PROJECT_DIR$/BeijingNews001/BeijingNews001.iml" filepath="$PROJECT_DIR$/BeijingNews001/BeijingNews001.iml" />
       <module fileurl="file://$PROJECT_DIR$/BeijingNews0224/BeijingNews0224.iml" filepath="$PROJECT_DIR$/BeijingNews0224/BeijingNews0224.iml" />
       <module fileurl="file://$PROJECT_DIR$/SlidingMenu_library/SlidingMenu_library.iml" filepath="$PROJECT_DIR$/SlidingMenu_library/SlidingMenu_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/ViewPagerIndicator_library/ViewPagerIndicator_library.iml" filepath="$PROJECT_DIR$/ViewPagerIndicator_library/ViewPagerIndicator_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/ViewPagerIndicator_sample/ViewPagerIndicator_sample.iml" filepath="$PROJECT_DIR$/ViewPagerIndicator_sample/ViewPagerIndicator_sample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pullToRefreshListFragment/pullToRefreshListFragment.iml" filepath="$PROJECT_DIR$/pullToRefreshListFragment/pullToRefreshListFragment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pullToRefreshViewPager/pullToRefreshViewPager.iml" filepath="$PROJECT_DIR$/pullToRefreshViewPager/pullToRefreshViewPager.iml" />
     </modules>
   </component>
 </project>
