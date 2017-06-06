@@ -4,9 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -147,6 +150,13 @@ public class TabDetailPager extends NewsCenterMenuBasePager {
             @Override
             public void onPageScrollStateChanged(int state) {
 
+                if(state==ViewPager.SCROLL_STATE_DRAGGING){
+                    handler.removeCallbacksAndMessages(null);
+                }else if(state==ViewPager.SCROLL_STATE_IDLE){
+                    handler.removeCallbacksAndMessages(null);
+                    handler.postDelayed(new InteralRunable(),2000);
+                }
+
             }
         });
 
@@ -170,8 +180,6 @@ public class TabDetailPager extends NewsCenterMenuBasePager {
                  }
             }
         });
-
-
 
 
 
@@ -208,6 +216,30 @@ public class TabDetailPager extends NewsCenterMenuBasePager {
 
                 });
     }
+
+
+    private InteralHandler handler;
+
+    class InteralHandler extends Handler{
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            int items = (viewpager.getCurrentItem() + 1) % topmews.size();
+
+            viewpager.setCurrentItem(items);
+            postDelayed(new InteralRunable(),2000);
+        }
+    }
+
+
+    class InteralRunable implements Runnable{
+        @Override
+        public void run() {
+            handler.sendEmptyMessage(0) ;
+        }
+    }
+
+
 
     private void processData(String response) {
         DetailsPagerBean bean = new Gson().fromJson(response, DetailsPagerBean.class);
@@ -256,6 +288,16 @@ public class TabDetailPager extends NewsCenterMenuBasePager {
            adapter.notifyDataSetChanged();
        }
 
+
+          //设置自动切换下一页面
+        if(handler==null){
+            handler = new InteralHandler();
+        }
+
+        handler.removeCallbacksAndMessages(null);
+
+        handler.postDelayed(new InteralRunable(),2000);
+
     }
 
     private class MyTopNewsAdapter extends PagerAdapter {
@@ -279,6 +321,25 @@ public class TabDetailPager extends NewsCenterMenuBasePager {
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(imageView);
             container.addView(imageView);
+
+
+            //ViewPager图片的触摸事件
+            imageView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    switch (event.getAction()) {
+                        case MotionEvent.ACTION_DOWN :
+                            handler.removeCallbacksAndMessages(null);
+
+                            break;
+                        case MotionEvent.ACTION_UP :
+                            handler.postDelayed(new InteralRunable(),2000);
+
+                            break;
+                    }
+                    return true;
+                }
+            });
 
             return imageView;
         }
