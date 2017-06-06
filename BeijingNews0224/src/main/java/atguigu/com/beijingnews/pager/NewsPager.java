@@ -28,8 +28,8 @@ import atguigu.com.beijingnews.NewaPagers.SubjectPager;
 import atguigu.com.beijingnews.NewaPagers.VotePager;
 import atguigu.com.beijingnews.domain.NewsBean;
 import atguigu.com.beijingnews.fragment.LeftMenuFragment;
-import atguigu.com.beijingnews.utils.ChangerUtils;
-import atguigu.com.beijingnews.utils.ConstantUtils;
+import atguigu.com.newsbeijing_library.utils.ChangerUtils;
+import atguigu.com.newsbeijing_library.utils.ConstantUtils;
 import okhttp3.Call;
 
 /**

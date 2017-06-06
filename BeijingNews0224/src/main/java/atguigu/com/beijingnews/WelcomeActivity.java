@@ -10,7 +10,8 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
 
-import atguigu.com.beijingnews.utils.ChangerUtils;
+import atguigu.com.newsbeijing_library.utils.ChangerUtils;
+
 
 public class WelcomeActivity extends AppCompatActivity {
    private RelativeLayout activity_main;

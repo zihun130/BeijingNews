@@ -14,9 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
-
-import atguigu.com.beijingnews.utils.ChangerUtils;
-import atguigu.com.beijingnews.utils.DensityUtil;
+import atguigu.com.newsbeijing_library.utils.ChangerUtils;
+import atguigu.com.newsbeijing_library.utils.DensityUtil;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
