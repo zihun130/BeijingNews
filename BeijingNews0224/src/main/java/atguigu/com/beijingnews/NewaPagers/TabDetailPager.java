@@ -1,11 +1,13 @@
 package atguigu.com.beijingnews.NewaPagers;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,6 +20,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.handmark.pulltorefresh.library.extras.SoundPullEventListener;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -27,6 +30,7 @@ import atguigu.com.beijingnews.Base.NewsCenterMenuBasePager;
 import atguigu.com.beijingnews.R;
 import atguigu.com.beijingnews.domain.DetailsPagerBean;
 import atguigu.com.beijingnews.domain.NewsBean;
+import atguigu.com.beijingnews.utils.ChangerUtils;
 import atguigu.com.beijingnews.utils.ConstantUtils;
 import atguigu.com.beijingnews.utils.DensityUtil;
 import atguigu.com.beijingnews.view.HorizontalViewPager;
@@ -42,6 +46,7 @@ import okhttp3.Call;
  */
 
 public class TabDetailPager extends NewsCenterMenuBasePager {
+    public static final String READ_NEWS_ID_ARRAY_KEY = "read_news_id_array_key";
     private final NewsBean.DataBean.ChildrenBean childrenBean;
     @InjectView(R.id.pull_refresh_list)
     PullToRefreshListView pullRefreshList;
@@ -73,6 +78,16 @@ public class TabDetailPager extends NewsCenterMenuBasePager {
         ButterKnife.inject(this, view);
         //从下拉刷新中获取ListView
         lv=pullRefreshList.getRefreshableView();
+
+
+        /**
+         * Add Sound Event Listener
+         */
+        SoundPullEventListener<ListView> soundListener = new SoundPullEventListener<ListView>(context);
+        soundListener.addSoundEvent(PullToRefreshBase.State.PULL_TO_REFRESH, R.raw.pull_event);
+        soundListener.addSoundEvent(PullToRefreshBase.State.RESET, R.raw.reset_sound);
+        soundListener.addSoundEvent(PullToRefreshBase.State.REFRESHING, R.raw.refreshing_sound);
+        pullRefreshList.setOnPullEventListener(soundListener);
         //顶部视图
         View viewTop = View.inflate(context, R.layout.listview_topview_item, null);
         viewpager = (HorizontalViewPager) viewTop.findViewById(R.id.viewpager);
@@ -80,11 +95,36 @@ public class TabDetailPager extends NewsCenterMenuBasePager {
         ll_point_group = (LinearLayout) viewTop.findViewById(R.id.ll_point_group);
 
         lv.addHeaderView(viewTop);
+        //ListView每一条的点击事件
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                int realPosition=position - 2;
+                DetailsPagerBean.DataBean.NewsBean newsBean = news.get(realPosition);
+
+                String newsarray = ChangerUtils.getString(context,READ_NEWS_ID_ARRAY_KEY);
+                //判断存储的集合中是否包含新取到的ID
+                if(!newsarray.contains(newsBean.getId()+"")){
+                    //如果没有,获取新的ID
+                    String currValue=newsarray+newsBean.getId()+",";
+                    //把新的ID存到集合中
+                    ChangerUtils.putString(context,READ_NEWS_ID_ARRAY_KEY,currValue);
+                    adapter.notifyDataSetChanged();
+                }
+
+            }
+        });
+
+
         //ViewPager页面变换监听
         viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+                //设置红点的选项,添加在这个位置是解决0位置指示点一直存在的问题
+                ll_point_group.getChildAt(prePosition).setEnabled(false);
+                ll_point_group.getChildAt(position).setEnabled(true);
+                prePosition = position;
             }
 
             @Override
@@ -92,10 +132,7 @@ public class TabDetailPager extends NewsCenterMenuBasePager {
                 //设置标题
                 String title = topmews.get(position).getTitle();
                 tv_title.setText(title);
-                //设置红点的选项
-                ll_point_group.getChildAt(prePosition).setEnabled(false);
-                ll_point_group.getChildAt(position).setEnabled(true);
-                prePosition = position;
+
 
             }
 
@@ -289,6 +326,14 @@ public class TabDetailPager extends NewsCenterMenuBasePager {
                     .error(R.drawable.pic_item_list_default)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(viewHolder.ivIcon);
+
+            String newsarray = ChangerUtils.getString(context,READ_NEWS_ID_ARRAY_KEY);
+            if(newsarray.contains(newsBean.getId()+"")){
+                viewHolder.tvDesc.setTextColor(Color.GRAY);
+            }else {
+                viewHolder.tvDesc.setTextColor(Color.BLACK);
+            }
+
 
             return convertView;
         }

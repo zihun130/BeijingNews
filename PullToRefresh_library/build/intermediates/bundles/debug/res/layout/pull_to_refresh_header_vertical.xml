@@ -39,6 +39,7 @@
             android:orientation="vertical" >
 
             <TextView
+                android:textColor="#ff0000"
                 android:id="@+id/pull_to_refresh_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,6 +48,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:textColor="#ff0000"
                 android:id="@+id/pull_to_refresh_sub_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
