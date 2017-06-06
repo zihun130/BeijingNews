@@ -1,7 +1,9 @@
 package atguigu.com.beijingnews.NewaPagers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
@@ -27,6 +29,7 @@ import com.zhy.http.okhttp.callback.StringCallback;
 import java.util.List;
 
 import atguigu.com.beijingnews.Base.NewsCenterMenuBasePager;
+import atguigu.com.beijingnews.NewsWebViewActivity;
 import atguigu.com.beijingnews.R;
 import atguigu.com.beijingnews.domain.DetailsPagerBean;
 import atguigu.com.beijingnews.domain.NewsBean;
@@ -112,6 +115,11 @@ public class TabDetailPager extends NewsCenterMenuBasePager {
                     ChangerUtils.putString(context,READ_NEWS_ID_ARRAY_KEY,currValue);
                     adapter.notifyDataSetChanged();
                 }
+
+                String url=ConstantUtils.BASE_URL+newsBean.getUrl();
+                Intent intent=new Intent(context, NewsWebViewActivity.class);
+                intent.setData(Uri.parse(url));
+                context.startActivity(intent);
 
             }
         });
@@ -326,7 +334,7 @@ public class TabDetailPager extends NewsCenterMenuBasePager {
                     .error(R.drawable.pic_item_list_default)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(viewHolder.ivIcon);
-
+            //点击变灰
             String newsarray = ChangerUtils.getString(context,READ_NEWS_ID_ARRAY_KEY);
             if(newsarray.contains(newsBean.getId()+"")){
                 viewHolder.tvDesc.setTextColor(Color.GRAY);
