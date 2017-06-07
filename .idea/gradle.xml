@@ -11,10 +11,13 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/BeijingNews001" />
             <option value="$PROJECT_DIR$/BeijingNews0224" />
+            <option value="$PROJECT_DIR$/JPushExample(650664)" />
             <option value="$PROJECT_DIR$/NewsBeijing_Library" />
             <option value="$PROJECT_DIR$/PullToRefresh_library" />
             <option value="$PROJECT_DIR$/SlidingMenu_library" />
             <option value="$PROJECT_DIR$/ViewPagerIndicator_library" />
+            <option value="$PROJECT_DIR$/photoview" />
+            <option value="$PROJECT_DIR$/sample" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

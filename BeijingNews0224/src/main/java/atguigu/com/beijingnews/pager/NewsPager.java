@@ -152,17 +152,13 @@ public class NewsPager extends BasePager {
 
         newsPagers = new ArrayList<>();
         newsPagers.add(new NewsCenterPager(context,datas.get(0).getChildren()));
-        newsPagers.add(new SubjectPager(context));
-        newsPagers.add(new PhotosPager(context));
+        newsPagers.add(new SubjectPager(context,datas.get(0).getChildren()));
+        newsPagers.add(new PhotosPager(context,datas.get(2)));
         newsPagers.add(new InteractPager(context));
         newsPagers.add(new VotePager(context));
 
         LeftMenuFragment left= main.getLeftMenuFragment();
         left.setData(datas);
-
-
-
-
 
     }
 
@@ -174,6 +170,24 @@ public class NewsPager extends BasePager {
         fl_content.addView(rootView);
         basepagers.initData();
 
+
         tv_title.setText(datas.get(prePosition).getTitle());
+
+        if(prePosition==2){
+            ib_list_glid.setVisibility(View.VISIBLE);
+
+            ib_list_glid.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    PhotosPager photos = (PhotosPager) newsPagers.get(2);
+
+                    photos.SwitchListOrGrid(ib_list_glid);
+                }
+            });
+        }else {
+            ib_list_glid.setVisibility(View.GONE);
+        }
+
+
     }
 }

@@ -1,4 +1,4 @@
-include ':BeijingNews0224', ':SlidingMenu_library', ':BeijingNews001', ':NewsBeijing_Library'
+include ':BeijingNews0224', ':SlidingMenu_library', ':BeijingNews001', ':NewsBeijing_Library', ':sample', ':photoview', ':JPushExample(650664)'
 include ':ViewPagerIndicator_library'
 include ':PullToRefresh_library'
 

@@ -22,6 +22,7 @@ public class BasePager {
     public ImageButton ib_menu;
 
     public FrameLayout fl_content;
+    public ImageButton ib_list_glid;
 
     public BasePager(final Context context){
         this.context=context;
@@ -30,6 +31,7 @@ public class BasePager {
         tv_title = (TextView) rootView.findViewById(R.id.tv_title);
         ib_menu= (ImageButton) rootView.findViewById(R.id.ib_menu);
         fl_content=(FrameLayout) rootView.findViewById(R.id.fl_content);
+        ib_list_glid = (ImageButton) rootView.findViewById(R.id.ib_list_glid);
 
         ib_menu.setOnClickListener(new View.OnClickListener() {
             @Override
