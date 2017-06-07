@@ -17,7 +17,6 @@
             <option value="$PROJECT_DIR$/SlidingMenu_library" />
             <option value="$PROJECT_DIR$/ViewPagerIndicator_library" />
             <option value="$PROJECT_DIR$/photoview" />
-            <option value="$PROJECT_DIR$/sample" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

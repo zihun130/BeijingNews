@@ -31,7 +31,7 @@ public class ChangerUtils {
         SharedPreferences sp=context.getSharedPreferences("atguigu",Context.MODE_PRIVATE);
         sp.edit().putString(key,value).commit();
 
-
+        //使用文件存储
         if(Environment.getExternalStorageDirectory().equals(Environment.MEDIA_MOUNTED)){
 
             try {
@@ -67,6 +67,7 @@ public class ChangerUtils {
         SharedPreferences sp=context.getSharedPreferences("atguigu",Context.MODE_PRIVATE);
         value= sp.getString(key, "");
 
+       //从文件获取
         if(Environment.getExternalStorageDirectory().equals(Environment.MEDIA_MOUNTED)){
             try {
 

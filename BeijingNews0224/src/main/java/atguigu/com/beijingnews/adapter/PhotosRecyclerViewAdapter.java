@@ -75,16 +75,18 @@ public class PhotosRecyclerViewAdapter extends RecyclerView.Adapter<PhotosRecycl
         PhotosBean.DataBean.NewsBean newsBean = news.get(position);
         holder.tvTitle.setText(newsBean.getTitle());
         String imageUrl = ConstantUtils.BASE_URL+newsBean.getListimage();
+        //Glid,Picasso等会自动进行三级缓存
        /* Glide.with(context)
                 .load(imageUrl)
                 .placeholder(R.drawable.pic_item_list_default)
                 .error(R.drawable.pic_item_list_default)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.ivIcon);*/
-
+       //自定义设置三级缓存
         Bitmap bitmap= bitmapCacheUtils.getBitMap(imageUrl,position);
+        //图片对应的Tag就是位置
         holder.ivIcon.setTag(position);
-        if(bitmap!=null){
+        if(bitmap!=null){//来自内存或本地,不会来自网络
             holder.ivIcon.setImageBitmap(bitmap);
         }
 

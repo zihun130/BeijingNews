@@ -88,8 +88,9 @@ public class SubjectPager extends NewsCenterMenuBasePager {
         }
         //设置适配器
         details_viewpager.setAdapter(new MyDetailsPagerAdapter());
-        //关联Indicator
+        //关联tablayout
         tablayout.setupWithViewPager(details_viewpager);
+        //设置模式,如果默认模式所有指示会挤在一起,所以设置成滚动模式
         tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 
     }

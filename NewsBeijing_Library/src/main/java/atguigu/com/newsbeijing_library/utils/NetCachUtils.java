@@ -17,8 +17,9 @@ import java.util.concurrent.Executors;
  */
 
 public class NetCachUtils {
-
+    //成功
     public static final int SUCESS = 1;
+    //失败
     public static final int FAIL = 2;
     private final Handler handler;
     private final LocalCachUtils localCachUtils;
@@ -33,6 +34,7 @@ public class NetCachUtils {
     }
 
     public void getImagerFromNet(String imageUrl, int position) {
+        //开启子线程
          //new Thread(new MyRunable(imageUrl,position)).start();
         executorService.execute(new MyRunable(imageUrl,position));
     }
@@ -58,11 +60,12 @@ public class NetCachUtils {
 
                 int responseCode = urlConnection.getResponseCode();
                 if(200==responseCode){
+                    //请求图片成功
                     InputStream inputStream = urlConnection.getInputStream();
-
+                    //把流转换成bitmap
                     Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
 
-
+                    //发送到主线程
                     Message msg=Message.obtain();
                     msg.obj=bitmap;
                     msg.what=SUCESS;

@@ -32,14 +32,17 @@ public class LocalCachUtils {
             File parentFile = file.getParentFile();
 
             if(!parentFile.exists()){
+                //创建多级目录
                 parentFile.mkdirs();
             }
 
             if(!file.exists()){
+                //创建文件
                 file.createNewFile();
             }
 
             FileOutputStream fos=new FileOutputStream(file);
+            //写入数据
             bitmap.compress(Bitmap.CompressFormat.PNG,100,fos);
 
 
