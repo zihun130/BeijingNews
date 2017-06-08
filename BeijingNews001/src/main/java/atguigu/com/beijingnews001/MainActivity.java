@@ -30,6 +30,8 @@ public class MainActivity extends SlidingFragmentActivity {
 
         ft.replace(R.id.fl_left,new LeftMenuFragment(), LEFT_TAG);
         ft.replace(R.id.fl_main,new ContentFragment(), MAIN_TAG);
+        //必须提交事务,不然会没有任何显示
+        ft.commit();
     }
 
     private void initslidingmenu() {
@@ -39,5 +41,13 @@ public class MainActivity extends SlidingFragmentActivity {
         slidingMenu.setMode(SlidingMenu.LEFT);
         slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
         slidingMenu.setBehindOffset(200);
+    }
+
+    public LeftMenuFragment getLeftMenuFragment() {
+       return (LeftMenuFragment) getSupportFragmentManager().findFragmentByTag(LEFT_TAG);
+    }
+
+    public ContentFragment getContentFragment() {
+        return (ContentFragment) getSupportFragmentManager().findFragmentByTag(MAIN_TAG);
     }
 }

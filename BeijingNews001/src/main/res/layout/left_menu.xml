@@ -8,7 +8,6 @@
     tools:context="atguigu.com.beijingnews001.MainActivity">
 
     <TextView
-        android:text="侧滑页面"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
